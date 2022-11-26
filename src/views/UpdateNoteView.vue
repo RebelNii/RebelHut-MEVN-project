@@ -5,7 +5,7 @@
                 <h5 class="mt-3 text-lg flex justify-center items-center">Update Note</h5>
                 <div class="my-4">
                     <label for="">ID</label> <br/>
-                    <input type="text" placeholder="user" v-model="id"  class="border-none p-2 focus:outline-none w-full rounded">
+                    <input type="hidden" placeholder="user" v-model="id"  class="border-none p-2 focus:outline-none w-full rounded">
                 </div>
                 <div class="my-4">
                     <label for="">Title</label> <br/>

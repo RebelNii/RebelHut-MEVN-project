@@ -6,7 +6,7 @@
                     <h3 class="text-xl font-medium my-2">Update Employee</h3>
                     <div class="my-3">
                         <label for="">ID</label> <br>
-                        <input type="text" v-model="id" placeholder="ID" class="p-2 focus:outline-none border-zinc-300 rounded border-solid">
+                        <input type="hidden" v-model="id" placeholder="ID" class="p-2 focus:outline-none border-zinc-300 rounded border-solid">
                     </div>
                     <div class="my-3">
                         <label for="">Username</label> <br>
