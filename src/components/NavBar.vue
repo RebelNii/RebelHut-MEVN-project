@@ -14,9 +14,9 @@
                 <router-link :to="{name:'dashboard'}">DashBoard</router-link>
                 <!-- <router-link></router-link> -->
             </div>
-            <div class="flex justify-end items-center px-5">
+            <div class="flex justify-end items-center px-3">
                 <h5 class="text-sm md:text-lg font-medium">
-                <a href="javascript:void(0)" @click="logouts" class="bg-red-300 p-1 rounded hover:bg-red-600" v-if="this.$store.state.active">Logout</a> <router-link v-else class="bg-green-400 p-2 rounded text-base" :to="{name:'login'}">Login</router-link> 
+                <a href="javascript:void(0)" @click="logouts" class="bg-red-300 p-1 rounded hover:bg-red-600" v-if="this.$store.state.active">Logout</a> <router-link v-else class="bg-green-400 p-2 rounded text-sm" :to="{name:'login'}">Login</router-link> 
             </h5>
             </div>
         </div>
