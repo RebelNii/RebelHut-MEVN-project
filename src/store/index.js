@@ -114,7 +114,7 @@ export default createStore({
         withCredentials: true,
         credentials: 'include'
       })
-      console.log(res.data)
+      // console.log(res.data)
     },
 
     async updateUser({commit},{id,username,password,roles,active}){
@@ -125,7 +125,7 @@ export default createStore({
         withCredentials: true,
         credentials: 'include'
       })
-      console.log(res.data)
+      // console.log(res.data)
       commit('setUser',res.data)
     },
 
@@ -144,15 +144,12 @@ export default createStore({
 
     async getSingleUser({commit},id){
       const res = await axios.get(`https://rebelhut-api.onrender.com/users/${id}`)
-      console.log(res.data)
+      // console.log(res.data)
       return res.data
     },
 
     async loginUser({commit},{username,password}){
       const {data} = await axios.post('https://rebelhut-api.onrender.com/auth',{username,password},{
-        headers:{
-          Authorization: `Bearer ${localStorage.getItem('token')}`
-        },
         withCredentials: true,
         credentials: 'include'
       })
