@@ -33,7 +33,7 @@ axios.interceptors.response.use(res => res, async error => {
       // console.log(error.config)
       if(error.response.status === 401 && !refresh){
         refresh = true;
-        const reply = await axios.get('http://localhost:3050/auth/refresh',{
+        const reply = await axios.get('https://rebelhut-api.onrender.com/auth/refresh',{
             headers:{
               Authorization: `Bearer ${localStorage.getItem('token')}`
             },
