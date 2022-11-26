@@ -95,19 +95,19 @@ export default createStore({
   },
   actions: {
     async fetchUsers({commit}){
-      const res = await axios.get('http://localhost:3050/users',{
+      const res = await axios.get('https://rebelhut-api.onrender.com/users',{
         headers:{
           Authorization: `Bearer ${localStorage.getItem('token')}`
         },
         withCredentials: true,
         credentials: 'include'
       })
-      console.log(res.data)
+      // console.log(res.data)
       commit('setUser',res.data)
     },
 
     async regUser({commit},{username,password,roles}){
-      const res = await axios.post('http://localhost:3050/users',{username,password,roles},{
+      const res = await axios.post('https://rebelhut-api.onrender.com/users',{username,password,roles},{
         headers:{
           Authorization: `Bearer ${localStorage.getItem('token')}`
         },
@@ -118,7 +118,7 @@ export default createStore({
     },
 
     async updateUser({commit},{id,username,password,roles,active}){
-      const res = await axios.patch('http://localhost:3050/users',{id,username,password,roles,active},{
+      const res = await axios.patch('https://rebelhut-api.onrender.com/users',{id,username,password,roles,active},{
         headers:{
           Authorization: `Bearer ${localStorage.getItem('token')}`
         },
@@ -130,7 +130,7 @@ export default createStore({
     },
 
     async deleteUser({commit},id){
-      const res = await axios.delete(`http://localhost:3050/users/${id}`,{
+      const res = await axios.delete(`https://rebelhut-api.onrender.com/users/${id}`,{
         headers:{
           Authorization: `Bearer ${localStorage.getItem('token')}`
         },
@@ -143,13 +143,13 @@ export default createStore({
     },
 
     async getSingleUser({commit},id){
-      const res = await axios.get(`http://localhost:3050/users/${id}`)
+      const res = await axios.get(`https://rebelhut-api.onrender.com/users/${id}`)
       console.log(res.data)
       return res.data
     },
 
     async loginUser({commit},{username,password}){
-      const {data} = await axios.post('http://localhost:3050/auth',{username,password},{
+      const {data} = await axios.post('https://rebelhut-api.onrender.com/auth',{username,password},{
         headers:{
           Authorization: `Bearer ${localStorage.getItem('token')}`
         },
@@ -173,14 +173,15 @@ export default createStore({
       return data
     },
 
-    logout({commit}){
+    async logout({commit}){
+      const {data} = await axios.post('https://rebelhut-api.onrender.com/auth/logout')
       localStorage.removeItem('token')
       commit('removePerson')
       router.push('/')
     },
 
     async addNote({commit},{user, title, text}){
-      const res = await axios.post('http://localhost:3050/notes',{user,title,text},{
+      const res = await axios.post('https://rebelhut-api.onrender.com/notes',{user,title,text},{
         headers:{
           Authorization: `Bearer ${localStorage.getItem('token')}`
         },
@@ -192,7 +193,7 @@ export default createStore({
     },
 
     async fetchNotes({commit}){
-      const {data} = await axios.get('http://localhost:3050/notes',{
+      const {data} = await axios.get('https://rebelhut-api.onrender.com/notes',{
         headers:{
           Authorization: `Bearer ${localStorage.getItem('token')}`
         },
@@ -205,7 +206,7 @@ export default createStore({
     },
 
     async updateNote({commit},{id,user,title, text, completed}){
-      const {data} = await axios.patch('http://localhost:3050/notes',{id,user,title,text,completed},{
+      const {data} = await axios.patch('https://rebelhut-api.onrender.com/notes',{id,user,title,text,completed},{
         headers:{
           Authorization: `Bearer ${localStorage.getItem('token')}`
         },
@@ -217,7 +218,7 @@ export default createStore({
     },
 
     async deleteNote({commit},id){
-      const {data} = await axios.delete(`http://localhost:3050/notes/${id}`,{
+      const {data} = await axios.delete(`https://rebelhut-api.onrender.com/notes/${id}`,{
         headers:{
           Authorization: `Bearer ${localStorage.getItem('token')}`
         },
