@@ -25,7 +25,7 @@
                             <p class="text-sm">{{notes.text}}</p>
                         </div>
                         <div class="mt-3 cursor-pointer">
-                            <router-link class="bg-green-500 transition-all hover:bg-green-300  p-3 rounded text-sm uppercase" :to="'/update-note/'+notes._id">Update</router-link>
+                            <router-link class="bg-green-500 transition-all hover:bg-green-300  p-2 rounded text-sm uppercase" :to="'/update-note/'+notes._id">Update</router-link>
                         </div>
                     </div>
                 </div>

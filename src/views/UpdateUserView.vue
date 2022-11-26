@@ -77,7 +77,7 @@ import axios from 'axios'
         },
         async created() {
             // data = this.getSingleUser({id: this.router.params.id});
-            const res = await axios.get('http://localhost:3050/users/'+ this.$route.params.id,{
+            const res = await axios.get('https://rebelhut-api.onrender.com/users/'+ this.$route.params.id,{
                 headers:{
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 },

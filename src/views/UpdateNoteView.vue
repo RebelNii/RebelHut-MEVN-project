@@ -55,7 +55,7 @@ export default{
         }
     },
     async created(){
-        const {data} = await axios.get('http://localhost:3050/notes/'+ this.$route.params.id,{
+        const {data} = await axios.get('https://rebelhut-api.onrender.com/notes/'+ this.$route.params.id,{
                 headers:{
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 },
