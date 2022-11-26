@@ -1,30 +1,57 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+ <div id="mainstream" class="mainstream relative">
+    <nav>
+      <Navbar />
+    </nav>
+    <div class="relative mb-2">
+      <router-view/>
+    </div>
+    <footer class="absolute bottom-0 right-0 left-0 pt-2">
+      <Footer />
+    </footer>
+ </div>
 </template>
 
+<script>
+// import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue"
+import Navbar from "@/components/NavBar.vue"
+export default {
+  components: {
+    Footer,
+    Navbar
+  },
+};
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
-nav {
-  padding: 30px;
+.mainstream{
+  min-height: 100vh;
+  position: relative;
+  font-family: 'Roboto', sans-serif;
+  padding-bottom: 10px;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+.mainstream::before{
+  content: " ";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-image: url('./assets/img/bggg.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: limegreen;
+  opacity: 0.65;
 }
 </style>
